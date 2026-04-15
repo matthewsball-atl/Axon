@@ -1,4 +1,4 @@
-# Axon v1.24
+# Axon v1.33
 
 > *Your knowledge, alive.*
 
@@ -24,6 +24,20 @@ Axon is built around four ideas:
 
 | Version | Notes |
 |---|---|
+| 1.33 | Stats page redesigned with visual charts: 4-KPI header row, horizontal bar charts for folders and most-referenced notes, SVG donut chart for task breakdown, longest notes list, word count distribution sparkline. |
+| 1.32 | Token efficiency fixes: removed full file path dump from every system prompt, capped full content per file at 2000 words (~2700 tokens), capped fallback context tiers. Folder filter label shown in system prompt when active. |
+| 1.31 | Removed icon column from import rows — was rendering confusing clipboard emoji next to filename. Type badge already identifies file type. |
+| 1.30 | Fixed import checkboxes — FileRow was defined as an unstable component inside ImportView causing React to remount on every render, losing click handlers. Converted to an inline render function. |
+| 1.29 | Connect to Brain auto-detects Axon root structure (Content/, Actions/, Chats/, Imports/, reminders.md). Supports both Axon root and direct vault folder selection. Toast confirms what was detected. |
+| 1.33 | Stats page redesigned with visual charts: 4-KPI header row, horizontal bar charts for folders and most-referenced notes, SVG donut chart for task breakdown, longest notes list, word count distribution sparkline. |
+| 1.32 | Token efficiency fixes: removed full file path dump from every system prompt, capped full content per file at 2000 words (~2700 tokens), capped fallback context tiers. Folder filter label shown in system prompt when active. |
+| 1.31 | Removed icon column from import rows — was rendering confusing clipboard emoji next to filename. Type badge already identifies file type. |
+| 1.30 | Fixed import checkboxes — FileRow was defined as an unstable component inside ImportView causing React to remount on every render, losing click handlers. Converted to an inline render function. |
+| 1.29 | Connect to Brain auto-detects Axon directory structure. Picks Axon root → finds Content/ as vault, Chats/, Imports/, Actions/, reminders.md automatically. Falls back to scanning inside picked folder. Shows detection toast on connect. |
+| 1.28 | Fixed stale closure bug causing rescan and import to not update sidebar or index. Fixed readVaultFiles skipping system folders (index/, chats/). Refresh button replaces icon with text, shows "Refreshing…" while active. |
+| 1.27 | Capture + button moved to right of search bar. Floating action button (FAB) added to bottom-right on all pages except Settings. |
+| 1.26 | Sidebar refresh button (↻) rescans vault and updates index for backdoor-added files. Spinner indicates active refresh. |
+| 1.25 | Browse sidebar defaults to collapsed. Expand all / Collapse all toggle added to sidebar. |
 | 1.24 | LLM provider selector in Settings (Anthropic active, OpenAI and Google Gemini coming soon). API key field renamed to LLM API Key. About section added to Settings showing current version. |
 | 1.23 | Security hardening: DOMPurify for markdown rendering, safeFetch guard, sanitizeName for path traversal prevention, JSON.parse error handling, API key format validation. |
 | 1.22 | README.md auto-generated on first-time setup. README included in Axon root scaffold. |
@@ -72,8 +86,9 @@ If you already have a folder of markdown files:
 
 1. Open `axon.html` in Chrome
 2. Click **"◈ Connect to Brain"**
-3. Select your markdown folder
-4. Axon scans and indexes your content in the background
+3. Select your **Axon root folder** (the folder containing Content/, Chats/, Imports/) — Axon will auto-detect all subdirectories
+4. Or select any markdown folder directly — Axon will scan inside it for Actions/, Chats/, Imports/, and reminders.md
+5. A confirmation toast shows everything that was auto-detected
 
 ### API key
 
@@ -186,4 +201,3 @@ Click **✎ Edit** on any note, or use the `+` button on any sidebar folder to c
 ## License
 
 Axon is a personal productivity tool. All content in your vault remains entirely yours.
-

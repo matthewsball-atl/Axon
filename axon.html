@@ -251,13 +251,13 @@ body{--accent:#7dde3a;--accent2:#4a9e1a;--accent-glow:rgba(125,222,58,0.12);--te
 .import-list-wrap{flex:1;overflow-y:auto;padding:0;}
 .import-list-wrap::-webkit-scrollbar{width:4px;}
 .import-list-wrap::-webkit-scrollbar-thumb{background:var(--border2);}
-.import-list-header{display:grid;grid-template-columns:36px 32px 1fr 80px 180px 120px 110px;align-items:center;gap:0;padding:8px 20px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg2);z-index:5;}
+.import-list-header{display:grid;grid-template-columns:36px 1fr 80px 180px 120px 110px;align-items:center;gap:0;padding:8px 20px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg2);z-index:5;}
 .import-col-hdr{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text2);}
 .select-all-cb{width:14px;height:14px;border-radius:3px;border:1.5px solid var(--border2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;background:none;flex-shrink:0;}
 .select-all-cb.checked{background:var(--accent);border-color:var(--accent);}
 .select-all-cb.checked::after{content:'✓';font-size:8px;color:var(--accent-text);font-weight:700;}
 .select-all-cb.partial{background:var(--accent-glow);border-color:var(--accent);}
-.import-row{display:grid;grid-template-columns:36px 32px 1fr 80px 180px 120px 110px;align-items:center;gap:0;padding:0 20px;border-bottom:1px solid var(--border);min-height:52px;transition:background .1s;}
+.import-row{display:grid;grid-template-columns:36px 1fr 80px 180px 120px 110px;align-items:center;gap:0;padding:0 20px;border-bottom:1px solid var(--border);min-height:52px;transition:background .1s;}
 .import-row:hover{background:var(--bg3);}
 .import-row.selected{background:var(--accent-glow);}
 .import-row.converting{background:rgba(125,222,58,.05);}
@@ -323,6 +323,35 @@ body{--accent:#7dde3a;--accent2:#4a9e1a;--accent-glow:rgba(125,222,58,0.12);--te
 .key-field input::placeholder{color:var(--text3);}
 .dir-name{font-size:12px;color:var(--teal);font-family:var(--font-mono);background:var(--teal-dim);border:1px solid rgba(43,181,172,.2);border-radius:5px;padding:3px 10px;}
 .dir-none{font-size:12px;color:var(--text3);font-family:var(--font-mono);}
+.stats-view-wrap{display:flex;flex-direction:column;gap:20px;padding:24px 32px;overflow-y:auto;height:100%;}
+.stats-view-wrap::-webkit-scrollbar{width:4px;}
+.stats-view-wrap::-webkit-scrollbar-thumb{background:var(--border2);}
+.stats-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.stats-kpi{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;display:flex;flex-direction:column;gap:2px;}
+.stats-kpi-val{font-family:var(--font-display);font-size:28px;color:var(--accent);letter-spacing:-0.03em;line-height:1;}
+.stats-kpi-label{font-size:11px;color:var(--text3);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.05em;margin-top:4px;}
+.stats-kpi-sub{font-size:11px;color:var(--text3);font-family:var(--font-mono);}
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.stats-panel{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;}
+.stats-panel-title{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);margin-bottom:14px;}
+.stats-panel.full{grid-column:1/-1;}
+.stats-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.stats-bar-row:last-child{margin-bottom:0;}
+.stats-bar-label{font-size:12px;color:var(--text2);width:120px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.stats-bar-track{flex:1;height:8px;background:var(--bg4);border-radius:4px;overflow:hidden;}
+.stats-bar-fill{height:100%;border-radius:4px;transition:width .4s ease;}
+.stats-bar-count{font-size:11px;color:var(--text3);font-family:var(--font-mono);width:28px;text-align:right;flex-shrink:0;}
+.stats-list-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);}
+.stats-list-row:last-child{border-bottom:none;}
+.stats-list-rank{font-size:11px;color:var(--text3);font-family:var(--font-mono);width:16px;flex-shrink:0;}
+.stats-list-title{flex:1;font-size:13px;color:var(--text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.stats-list-folder{font-size:11px;color:var(--text3);font-family:var(--font-mono);}
+.stats-list-badge{font-size:11px;font-family:var(--font-mono);color:var(--accent);background:var(--accent-glow);border:1px solid rgba(125,222,58,.15);border-radius:4px;padding:1px 8px;flex-shrink:0;}
+.stats-donut{display:flex;align-items:center;gap:20px;}
+.stats-donut-legend{display:flex;flex-direction:column;gap:8px;flex:1;}
+.stats-legend-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text2);}
+.stats-legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.stats-legend-val{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--text3);}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px;}
 .stat-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 16px;}
 .stat-card-val{font-family:var(--font-display);font-size:26px;color:var(--accent);letter-spacing:-0.02em;}
@@ -548,6 +577,19 @@ body{--accent:#7dde3a;--accent2:#4a9e1a;--accent-glow:rgba(125,222,58,0.12);--te
 .provider-tag{font-size:10px;font-weight:600;letter-spacing:.05em;padding:2px 7px;border-radius:4px;font-family:var(--font-mono);}
 .provider-tag.soon{background:var(--bg4);color:var(--text3);border:1px solid var(--border);}
 .provider-tag.active{background:var(--accent-glow);color:var(--accent);border:1px solid rgba(125,222,58,.3);}
+
+.tree-controls{padding:4px 8px 6px;display:flex;justify-content:flex-end;}
+.tree-ctrl-btn{background:none;border:none;font-size:11px;color:var(--text3);cursor:pointer;font-family:var(--font-mono);padding:2px 4px;transition:color .1s;letter-spacing:.02em;}
+.tree-ctrl-btn:hover{color:var(--accent);}
+
+.sidebar-refresh-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:11px;font-family:var(--font-mono);font-weight:600;letter-spacing:.04em;padding:2px 4px;line-height:1;transition:color .1s;flex-shrink:0;white-space:nowrap;}
+.sidebar-refresh-btn:hover{color:var(--accent);}
+.sidebar-refresh-btn.spinning{color:var(--accent);opacity:.7;}
+@keyframes spin360{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.fab{position:fixed;bottom:64px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--accent-text);border:none;font-size:24px;font-weight:300;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:all .15s;z-index:100;line-height:1;}
+.fab:hover{background:var(--accent2);transform:scale(1.08);}
+.fab:active{transform:scale(0.96);}
 </style>
 </head>
 <body class="dark">
@@ -604,12 +646,14 @@ function fileExt(name){const m=name.match(/\.([^.]+)$/);return m?m[1].toLowerCas
 function fileIcon(name){const ext=fileExt(name);const map={pdf:'📄',docx:'📝',doc:'📝',pptx:'📊',ppt:'📊',xlsx:'📈',xls:'📈',txt:'📃',md:'📋',png:'🖼',jpg:'🖼',jpeg:'🖼',csv:'📊'};return map[ext]||'📁';}
 function formatSize(bytes){if(bytes<1024)return bytes+'B';if(bytes<1024*1024)return Math.round(bytes/1024)+'KB';return(bytes/1024/1024).toFixed(1)+'MB';}
 
+const SKIP_DIRS=new Set(['index','chats','.git','.obsidian','node_modules']);
 async function readVaultFiles(dir,path=''){
   const files=[];
   for await(const[name,handle]of dir.entries()){
     const fp=path?`${path}/${name}`:name;
-    if(handle.kind==='directory'&&!name.startsWith('.'))files.push(...(await readVaultFiles(handle,fp)));
-    else if(handle.kind==='file'&&name.endsWith('.md')){
+    if(handle.kind==='directory'&&!name.startsWith('.')&&!SKIP_DIRS.has(name)){
+      files.push(...(await readVaultFiles(handle,fp)));
+    } else if(handle.kind==='file'&&name.endsWith('.md')){
       const file=await handle.getFile();const content=await file.text();
       files.push({path:fp,name,content,title:extractTitle(content,name),backlinks:extractBacklinks(content),excerpt:extractExcerpt(content),folder:folderLabel(fp),headings:extractHeadings(content)});
     }
@@ -1095,7 +1139,7 @@ function FolderTree({files,activeFile,onSelect,vaultHandle,onRefresh,onNewFile})
 
   useEffect(()=>{
     const o={};
-    Object.keys(grouped).forEach(k=>{o[k]=k!=='__root__';});
+    Object.keys(grouped).forEach(k=>{o[k]=false;});
     setOpen(o);
   },[Object.keys(grouped).join(',')]);
 
@@ -1141,7 +1185,19 @@ function FolderTree({files,activeFile,onSelect,vaultHandle,onRefresh,onNewFile})
   const namedFolders=Object.entries(grouped).filter(([k])=>k!=='__root__');
   const rootFiles=grouped['__root__']||[];
 
+  const allOpen=namedFolders.length>0&&namedFolders.every(([k])=>open[k]);
+  const expandAll=()=>{const o={};namedFolders.forEach(([k])=>{o[k]=true;});setOpen(o);};
+  const collapseAll=()=>{const o={};namedFolders.forEach(([k])=>{o[k]=false;});setOpen(o);};
+
   return React.createElement('div',{className:'file-tree'},
+    // Expand/collapse toggle — only show when there are named folders
+    namedFolders.length>0&&React.createElement('div',{className:'tree-controls'},
+      React.createElement('button',{
+        className:'tree-ctrl-btn',
+        onClick:allOpen?collapseAll:expandAll,
+        title:allOpen?'Collapse all folders':'Expand all folders'
+      },allOpen?'− Collapse all':'+ Expand all')
+    ),
     // Root-level files (no folder label)
     rootFiles.map(f=>React.createElement('div',{key:f.path,className:`file-item ${activeFile?.path===f.path?'active':''}`,style:{paddingLeft:8},onClick:()=>onSelect(f)},
       React.createElement('span',{className:'fdot'}),
@@ -1635,14 +1691,13 @@ function ImportView({downloadsHandle,vaultHandle,apiKey,onImportComplete,onGoSet
 
   const fmtDate=ts=>ts?new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'';
 
-  const FileRow=({row,isPrev=false})=>React.createElement('div',{
+  const renderRow=(row,isPrev=false)=>React.createElement('div',{
     key:row.id,
     className:`import-row ${row._selected?'selected':''} ${row.status==='converting'?'converting':''} ${row.status==='err'?'err-row':''} ${isPrev?'prev-row':''}`
   },
     isPrev
       ?React.createElement('div',{style:{width:36}})
       :React.createElement('div',{className:`row-cb ${row._selected?'checked':''}`,onClick:()=>toggleSelect(row.id)}),
-    React.createElement('div',{className:'row-icon'},row.icon),
     React.createElement('div',{className:'row-name-cell'},
       row.editingName&&!isPrev
         ?React.createElement('input',{className:'row-name-input',autoFocus:true,value:row.outputName,onChange:e=>updateRow(row.id,{outputName:e.target.value},isPrev),onBlur:()=>updateRow(row.id,{editingName:false},isPrev),onKeyDown:e=>{if(e.key==='Enter'||e.key==='Escape')updateRow(row.id,{editingName:false},isPrev);}})
@@ -1735,7 +1790,6 @@ function ImportView({downloadsHandle,vaultHandle,apiKey,onImportComplete,onGoSet
         ?React.createElement(React.Fragment,null,
           filteredRows.length>0&&React.createElement('div',{className:'import-list-header'},
             React.createElement('div',{className:`select-all-cb ${allSelected?'checked':someSelected?'partial':''}`,onClick:toggleAll}),
-            React.createElement('div',null),
             React.createElement('div',{className:'import-col-hdr'},'File'),
             React.createElement('div',{className:'import-col-hdr'},'Type'),
             React.createElement('div',{className:'import-col-hdr'},'Destination'),
@@ -1749,7 +1803,7 @@ function ImportView({downloadsHandle,vaultHandle,apiKey,onImportComplete,onGoSet
                 ?'No supported files found. Add files to your Downloads folder and click Refresh.'
                 :'All files in your Imports folder have been imported. Add more files or click Refresh.')
               )
-            :filteredRows.map(row=>React.createElement(FileRow,{key:row.id,row,isPrev:false}))
+            :filteredRows.map(row=>renderRow(row,false))
           )
         :React.createElement(React.Fragment,null,
           React.createElement('div',{className:'import-list-header'},
@@ -1766,7 +1820,7 @@ function ImportView({downloadsHandle,vaultHandle,apiKey,onImportComplete,onGoSet
               React.createElement('div',{style:{fontSize:32,color:'var(--text3)',marginBottom:4}},'◈'),
               React.createElement('p',null,'No files imported yet. Switch to Candidates to get started.')
               )
-            :prevRows.filter(r=>activeTypes.has(r.ext)).map(row=>React.createElement(FileRow,{key:row.id,row,isPrev:true}))
+            :prevRows.filter(r=>activeTypes.has(r.ext)).map(row=>renderRow(row,true))
           )
     )
   );
@@ -1797,7 +1851,7 @@ function AskView({files,apiKey,chatsHandle,onGoSettings,onRescan,onForceRescan,p
         const ql=userMsg.toLowerCase();
         const scored=files.map(f=>{let sc=0;if(f.title.toLowerCase().includes(ql))sc+=5;return{...f,sc};});
         const ctx=scored.sort((a,b)=>b.sc-a.sc).slice(0,8).map(f=>`# ${f.title}\nPath: ${f.path}\n\n${f.content.slice(0,1000)}`).join('\n\n---\n\n');
-        const res=await safeFetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,system:`You are Axon, a personal knowledge assistant. The user wants to explore a topic in depth. Be analytical, specific, and connect concepts to real-world applications.\n\nVault context:\n\n${ctx}`,messages:[{role:'user',content:userMsg}]})});
+        const res=await safeFetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,system:`You are Axon, a personal knowledge assistant. The user wants to explore a topic in depth. Be analytical, specific, and connect concepts to real-world applications. Reference specific note titles and paths where relevant.\n\n${ctx}`,messages:[{role:'user',content:userMsg}]})});
         const data=await res.json();
         const reply=data.content?.[0]?.text||'No response.';
         const aiMsg={role:'assistant',content:reply};
@@ -1842,10 +1896,11 @@ function AskView({files,apiKey,chatsHandle,onGoSettings,onRescan,onForceRescan,p
     const high=scored.filter(f=>f.sc>=10).sort((a,b)=>b.sc-a.sc).slice(0,6);
     const med=scored.filter(f=>f.sc>0&&f.sc<10).sort((a,b)=>b.sc-a.sc).slice(0,12);
     const low=scored.filter(f=>f.sc===0).slice(0,20);
+    const cap=(t,w)=>{const ws=t.split(/\s+/);return ws.length>w?ws.slice(0,w).join(' ')+'…':t;};
     return[
-      ...high.map(f=>`# ${f.title}\nPath: ${f.path}\n\n${f.content}`),
-      ...med.map(f=>`# ${f.title}\nPath: ${f.path}\n\n${f.content.slice(0,600)}`),
-      ...low.map(f=>`# ${f.title}\nPath: ${f.path}\n\n${f.excerpt||f.content.slice(0,150)}`),
+      ...high.map(f=>`# ${f.title}\nPath: ${f.path}\n\n${cap(f.content,1500)}`),
+      ...med.map(f=>`# ${f.title}\nPath: ${f.path}\n\n${cap(f.content,300)}`),
+      ...low.map(f=>`# ${f.title}\nPath: ${f.path}\n\n${f.excerpt||cap(f.content,80)}`),
     ].join('\n\n---\n\n');
   },[files,vaultIndex,folderFilter]);
   const send=useCallback(async()=>{
@@ -1855,7 +1910,7 @@ function AskView({files,apiKey,chatsHandle,onGoSettings,onRescan,onForceRescan,p
     setMsgs(updatedMsgs);setLoading(true);
     try{
       const ctx=buildCtx(userMsg);
-      const res=await safeFetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,system:`You are Axon, a personal knowledge assistant for Matt Ball. You have access to his full personal knowledge vault. Synthesize notes directly and analytically. Always reference specific note titles and paths when relevant. If asked about something that might be in the vault, assume it exists even if not in the provided context excerpt — the vault contains ${files.length} notes across these paths:\n${files.map(f=>f.path).join('\n')}\n\nFull vault context:\n\n${ctx}`,messages:updatedMsgs.map(m=>({role:m.role,content:m.content}))})});
+      const res=await safeFetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,system:`You are Axon, a personal knowledge assistant. Answer analytically and specifically. Reference note titles and paths when relevant. The vault has ${files.length} notes total${folderFilter.length>0?' (filtered to '+folderFilter.length+' folder'+(folderFilter.length!==1?'s':'')+')':''}. If asked about something not in the provided context, say so clearly rather than guessing.\n\n${ctx}`,messages:updatedMsgs.map(m=>({role:m.role,content:m.content}))})});
       const data=await res.json();const reply=data.content?.[0]?.text||'No response.';
       const aiMsg={role:'assistant',content:reply};const finalMsgs=[...updatedMsgs,aiMsg];
       setMsgs(finalMsgs);
@@ -2004,116 +2059,198 @@ function AskView({files,apiKey,chatsHandle,onGoSettings,onRescan,onForceRescan,p
 /* ── SettingsView ── */
 /* ── StatsView ── */
 function StatsView({files,actionTodos,vaultHandle}){
-  const totalLinks=files.reduce((s,f)=>s+f.backlinks.length,0);
   const totalWords=files.reduce((s,f)=>s+f.content.split(/\s+/).length,0);
+  const totalLinks=files.reduce((s,f)=>s+f.backlinks.length,0);
+  const avgWords=files.length?Math.round(totalWords/files.length):0;
+  const readMins=Math.round(totalWords/250);
+
   const todayCount=actionTodos.filter(t=>t.bucket===TODAY&&!t.checked).length;
   const weekCount=actionTodos.filter(t=>t.bucket===WEEK&&!t.checked).length;
-  const doneCount=actionTodos.filter(t=>t.checked||t.bucket===DONE).length;
   const somedayCount=actionTodos.filter(t=>t.bucket===SOMEDAY&&!t.checked).length;
-  const avgWords=files.length>0?Math.round(totalWords/files.length):0;
-  const avgLinks=files.length>0?Math.round((totalLinks/files.length)*10)/10:0;
-  const readMins=Math.round(totalWords/250);
+  const doneCount=actionTodos.filter(t=>t.checked||t.bucket===DONE).length;
+  const totalTasks=todayCount+weekCount+somedayCount+doneCount;
+  const completionPct=totalTasks>0?Math.round(doneCount/totalTasks*100):0;
 
   // Folder breakdown
   const folderCounts={};
-  files.forEach(f=>{const folder=f.folder||'root';folderCounts[folder]=(folderCounts[folder]||0)+1;});
+  files.forEach(f=>{const k=f.folder||'root';folderCounts[k]=(folderCounts[k]||0)+1;});
   const topFolders=Object.entries(folderCounts).sort((a,b)=>b[1]-a[1]).slice(0,8);
-  const maxFolderCount=topFolders[0]?.[1]||1;
+  const maxFC=topFolders[0]?.[1]||1;
+  const folderColors=['var(--accent)','var(--teal)','var(--purple)','#e8a030','var(--red)','#a78bfa','var(--green)','var(--accent2)'];
 
-  // Most linked articles
+  // Most linked
   const linkMap={};
-  files.forEach(f=>{f.backlinks.forEach(bl=>{linkMap[bl]=(linkMap[bl]||0)+1;});});
+  files.forEach(f=>f.backlinks.forEach(bl=>{linkMap[bl]=(linkMap[bl]||0)+1;}));
   const topLinked=Object.entries(linkMap).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const maxLinks=topLinked[0]?.[1]||1;
 
-  // Files with most content
+  // Longest notes
   const topByWords=[...files].sort((a,b)=>b.content.split(/\s+/).length-a.content.split(/\s+/).length).slice(0,5);
 
-  // Recently added proxy — files whose title starts with a date or has a date in path
-  const dateFiles=files.filter(f=>f.path.match(/\d{4}-\d{2}-\d{2}/)).length;
+  // SVG donut for tasks
+  const donutData=[
+    {label:'Today',val:todayCount,color:'var(--accent)'},
+    {label:'This Week',val:weekCount,color:'var(--teal)'},
+    {label:'Someday',val:somedayCount,color:'var(--purple)'},
+    {label:'Done',val:doneCount,color:'var(--green)'},
+  ].filter(d=>d.val>0);
+  const donutTotal=donutData.reduce((s,d)=>s+d.val,0)||1;
+  const donutR=44,donutCx=56,donutCy=56,donutStroke=14;
+  const donutCircumference=2*Math.PI*donutR;
+  let donutOffset=0;
+  const donutSlices=donutData.map(d=>{
+    const pct=d.val/donutTotal;
+    const dasharray=`${pct*donutCircumference} ${donutCircumference}`;
+    const slice={...d,dasharray,offset:donutOffset};
+    donutOffset+=pct*donutCircumference;
+    return slice;
+  });
 
-  const Card=({val,label,sub,color})=>React.createElement('div',{className:'stat-card'},
-    React.createElement('div',{className:'stat-card-val',style:color?{color}:{}},val),
-    React.createElement('div',{className:'stat-card-label'},label),
-    sub&&React.createElement('div',{style:{fontSize:10,color:'var(--text3)',fontFamily:'var(--font-mono)',marginTop:3}},sub)
-  );
+  // Word count sparkline — distribute files into 10 buckets by word count
+  const sparkMax=Math.max(...files.map(f=>f.content.split(/\s+/).length),1);
+  const bucketCount=16;
+  const buckets=Array(bucketCount).fill(0);
+  files.forEach(f=>{
+    const wc=f.content.split(/\s+/).length;
+    const b=Math.min(bucketCount-1,Math.floor((wc/sparkMax)*(bucketCount-1)));
+    buckets[b]++;
+  });
+  const maxBucket=Math.max(...buckets,1);
 
-  const SectionTitle=({children})=>React.createElement('div',{className:'s-section-title'},children);
+  return React.createElement('div',{className:'stats-view-wrap'},
 
-  return React.createElement('div',{className:'settings-view'},
-    React.createElement('div',{className:'s-title'},'Stats'),
-    React.createElement('div',{className:'s-sub'},`${vaultHandle?.name||'Vault'} · as of today`),
-
-    React.createElement('div',{className:'s-section'},
-      React.createElement(SectionTitle,null,'Knowledge Base'),
-      React.createElement('div',{className:'stats-grid'},
-        React.createElement(Card,{val:files.length,label:'total notes'}),
-        React.createElement(Card,{val:totalWords.toLocaleString(),label:'total words'}),
-        React.createElement(Card,{val:totalLinks,label:'backlinks'}),
-        React.createElement(Card,{val:avgWords.toLocaleString(),label:'avg words / note'}),
-        React.createElement(Card,{val:avgLinks,label:'avg links / note'}),
-        React.createElement(Card,{val:`${readMins} min`,label:'est. read time',sub:'@ 250 wpm'})
+    // ── KPI row ──
+    React.createElement('div',{className:'stats-kpi-row'},
+      React.createElement('div',{className:'stats-kpi'},
+        React.createElement('div',{className:'stats-kpi-val'},files.length.toLocaleString()),
+        React.createElement('div',{className:'stats-kpi-label'},'Notes'),
+        React.createElement('div',{className:'stats-kpi-sub'},`${totalWords.toLocaleString()} words`)
+      ),
+      React.createElement('div',{className:'stats-kpi'},
+        React.createElement('div',{className:'stats-kpi-val'},avgWords.toLocaleString()),
+        React.createElement('div',{className:'stats-kpi-label'},'Avg words / note'),
+        React.createElement('div',{className:'stats-kpi-sub'},`${readMins} min read`)
+      ),
+      React.createElement('div',{className:'stats-kpi'},
+        React.createElement('div',{className:'stats-kpi-val'},totalLinks.toLocaleString()),
+        React.createElement('div',{className:'stats-kpi-label'},'Backlinks'),
+        React.createElement('div',{className:'stats-kpi-sub'},`${(totalLinks/Math.max(files.length,1)).toFixed(1)} avg / note`)
+      ),
+      React.createElement('div',{className:'stats-kpi'},
+        React.createElement('div',{className:'stats-kpi-val'},completionPct+'%'),
+        React.createElement('div',{className:'stats-kpi-label'},'Task completion'),
+        React.createElement('div',{className:'stats-kpi-sub'},`${doneCount} done · ${todayCount+weekCount} open`)
       )
     ),
 
-    React.createElement('div',{className:'s-section'},
-      React.createElement(SectionTitle,null,'Actions'),
-      React.createElement('div',{className:'stats-grid'},
-        React.createElement(Card,{val:todayCount,label:'due today',color:'var(--accent)'}),
-        React.createElement(Card,{val:weekCount,label:'this week',color:'var(--teal)'}),
-        React.createElement(Card,{val:somedayCount,label:'someday',color:'var(--purple)'}),
-        React.createElement(Card,{val:doneCount,label:'completed',color:'var(--green)'}),
-        React.createElement(Card,{val:todayCount+weekCount,label:'open total'}),
-        React.createElement(Card,{val:doneCount>0?Math.round(doneCount/(doneCount+todayCount+weekCount+somedayCount)*100)+'%':'—',label:'completion rate'})
-      )
-    ),
+    // ── Row 1: Folder breakdown + Task donut ──
+    React.createElement('div',{className:'stats-row'},
 
-    React.createElement('div',{className:'s-section'},
-      React.createElement(SectionTitle,null,'Notes by Folder'),
-      React.createElement('div',{style:{display:'flex',flexDirection:'column',gap:8}},
-        topFolders.map(([folder,count])=>
-          React.createElement('div',{key:folder,style:{display:'flex',alignItems:'center',gap:12}},
-            React.createElement('div',{style:{fontSize:12,color:'var(--text2)',width:140,flexShrink:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}},folder),
-            React.createElement('div',{style:{flex:1,height:6,background:'var(--bg3)',borderRadius:3,overflow:'hidden'}},
-              React.createElement('div',{style:{height:'100%',borderRadius:3,background:'var(--accent)',width:`${Math.round(count/maxFolderCount*100)}%`,transition:'width .3s'}})
-            ),
-            React.createElement('div',{style:{fontSize:11,color:'var(--text3)',fontFamily:'var(--font-mono)',width:24,textAlign:'right',flexShrink:0}},count)
-          )
-        )
-      )
-    ),
-
-    React.createElement('div',{className:'s-section'},
-      React.createElement(SectionTitle,null,'Most Referenced Notes'),
-      topLinked.length===0
-        ?React.createElement('div',{style:{fontSize:13,color:'var(--text3)'}},
-          'No backlinks found yet. Add [[WikiLinks]] in your notes to see this.')
-        :React.createElement('div',{style:{display:'flex',flexDirection:'column',gap:6}},
-          topLinked.map(([title,count],i)=>
-            React.createElement('div',{key:title,style:{display:'flex',alignItems:'center',gap:12,padding:'8px 0',borderBottom:'1px solid var(--border)'}},
-              React.createElement('div',{style:{fontSize:12,color:'var(--text3)',fontFamily:'var(--font-mono)',width:16,flexShrink:0}},i+1),
-              React.createElement('div',{style:{flex:1,fontSize:13,color:'var(--text2)'}},title),
-              React.createElement('div',{style:{fontSize:11,fontFamily:'var(--font-mono)',color:'var(--accent)',background:'var(--accent-glow)',border:'1px solid rgba(125,222,58,.15)',borderRadius:4,padding:'1px 8px'}},`${count} links`)
+      // Folder bar chart
+      React.createElement('div',{className:'stats-panel'},
+        React.createElement('div',{className:'stats-panel-title'},'Notes by folder'),
+        topFolders.length===0
+          ?React.createElement('div',{style:{fontSize:13,color:'var(--text3)'}},`No folders found.`)
+          :topFolders.map(([folder,count],i)=>
+            React.createElement('div',{key:folder,className:'stats-bar-row'},
+              React.createElement('div',{className:'stats-bar-label',title:folder},folder),
+              React.createElement('div',{className:'stats-bar-track'},
+                React.createElement('div',{className:'stats-bar-fill',style:{width:`${Math.round(count/maxFC*100)}%`,background:folderColors[i%folderColors.length]}})
+              ),
+              React.createElement('div',{className:'stats-bar-count'},count)
             )
           )
+      ),
+
+      // Task donut
+      React.createElement('div',{className:'stats-panel'},
+        React.createElement('div',{className:'stats-panel-title'},'Tasks'),
+        React.createElement('div',{className:'stats-donut'},
+          React.createElement('svg',{width:112,height:112,viewBox:'0 0 112 112',style:{flexShrink:0,transform:'rotate(-90deg)'}},
+            React.createElement('circle',{cx:donutCx,cy:donutCy,r:donutR,fill:'none',stroke:'var(--bg4)',strokeWidth:donutStroke}),
+            donutTotal===0
+              ?null
+              :donutSlices.map((s,i)=>React.createElement('circle',{
+                key:i,cx:donutCx,cy:donutCy,r:donutR,fill:'none',
+                stroke:s.color,strokeWidth:donutStroke,
+                strokeDasharray:s.dasharray,
+                strokeDashoffset:-s.offset,
+                style:{transition:'stroke-dasharray .4s ease'}
+              }))
+          ),
+          React.createElement('div',{className:'stats-donut-legend'},
+            donutData.map(d=>React.createElement('div',{key:d.label,className:'stats-legend-row'},
+              React.createElement('div',{className:'stats-legend-dot',style:{background:d.color}}),
+              React.createElement('span',null,d.label),
+              React.createElement('span',{className:'stats-legend-val'},d.val)
+            )),
+            donutTotal===0&&React.createElement('div',{style:{fontSize:12,color:'var(--text3)'}},`No tasks yet.`)
+          )
         )
+      )
     ),
 
-    React.createElement('div',{className:'s-section'},
-      React.createElement(SectionTitle,null,'Longest Notes'),
-      React.createElement('div',{style:{display:'flex',flexDirection:'column',gap:6}},
-        topByWords.map((f,i)=>{const wc=f.content.split(/\s+/).length;return React.createElement('div',{key:f.path,style:{display:'flex',alignItems:'center',gap:12,padding:'8px 0',borderBottom:'1px solid var(--border)'}},
-          React.createElement('div',{style:{fontSize:12,color:'var(--text3)',fontFamily:'var(--font-mono)',width:16,flexShrink:0}},i+1),
-          React.createElement('div',{style:{flex:1,overflow:'hidden'}},
-            React.createElement('div',{style:{fontSize:13,color:'var(--text2)',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}},f.title),
-            React.createElement('div',{style:{fontSize:11,color:'var(--text3)',fontFamily:'var(--font-mono)',marginTop:1}},f.folder)
-          ),
-          React.createElement('div',{style:{fontSize:11,fontFamily:'var(--font-mono)',color:'var(--text3)',flexShrink:0}},`${wc.toLocaleString()} words`)
-        );})
+    // ── Row 2: Most referenced + Longest notes ──
+    React.createElement('div',{className:'stats-row'},
+
+      // Most referenced
+      React.createElement('div',{className:'stats-panel'},
+        React.createElement('div',{className:'stats-panel-title'},'Most referenced'),
+        topLinked.length===0
+          ?React.createElement('div',{style:{fontSize:13,color:'var(--text3)'}},`No backlinks yet. Use [[WikiLinks]] in your notes.`)
+          :React.createElement(React.Fragment,null,
+            topLinked.map(([title,count],i)=>
+              React.createElement('div',{key:title,className:'stats-bar-row'},
+                React.createElement('div',{className:'stats-bar-label',title},title),
+                React.createElement('div',{className:'stats-bar-track'},
+                  React.createElement('div',{className:'stats-bar-fill',style:{width:`${Math.round(count/maxLinks*100)}%`,background:'var(--teal)'}})
+                ),
+                React.createElement('div',{className:'stats-bar-count'},count)
+              )
+            )
+          )
+      ),
+
+      // Longest notes
+      React.createElement('div',{className:'stats-panel'},
+        React.createElement('div',{className:'stats-panel-title'},'Longest notes'),
+        React.createElement(React.Fragment,null,
+          topByWords.map((f,i)=>{
+            const wc=f.content.split(/\s+/).length;
+            return React.createElement('div',{key:f.path,className:'stats-list-row'},
+              React.createElement('div',{className:'stats-list-rank'},i+1),
+              React.createElement('div',{style:{flex:1,overflow:'hidden'}},
+                React.createElement('div',{className:'stats-list-title',title:f.title},f.title),
+                React.createElement('div',{className:'stats-list-folder'},f.folder||'root')
+              ),
+              React.createElement('div',{className:'stats-list-badge'},wc.toLocaleString()+' w')
+            );
+          })
+        )
+      )
+    ),
+
+    // ── Row 3: Word count distribution sparkline ──
+    files.length>4&&React.createElement('div',{className:'stats-panel full'},
+      React.createElement('div',{className:'stats-panel-title'},'Word count distribution'),
+      React.createElement('svg',{
+        width:'100%',height:60,viewBox:`0 0 ${bucketCount*24} 60`,preserveAspectRatio:'none',
+        style:{display:'block'}
+      },
+        buckets.map((b,i)=>{
+          const h=b===0?2:Math.max(4,Math.round(b/maxBucket*48));
+          const x=i*24+2;const y=50-h;
+          return React.createElement('rect',{
+            key:i,x,y,width:20,height:h,rx:2,
+            fill:b===0?'var(--bg4)':'var(--accent)',opacity:0.2+0.8*(b/maxBucket)
+          });
+        }),
+        React.createElement('text',{x:2,y:58,fontSize:9,fill:'var(--text3)',fontFamily:'var(--font-mono)'},'few words'),
+        React.createElement('text',{x:bucketCount*24-2,y:58,fontSize:9,fill:'var(--text3)',fontFamily:'var(--font-mono)',textAnchor:'end'},'many words')
       )
     )
   );
 }
-
 
 function SettingsView({apiKey,setApiKey,vaultHandle,actionsHandle,downloadsHandle,chatsHandle,remindersHandle,onPickVault,onPickActions,onPickDownloads,onPickChats,onPickReminders,files,actionTodos,darkMode,setDarkMode,eduTopics,setEduTopics,editorMode,setEditorMode}){
   const[kd,setKd]=useState(apiKey);
@@ -2547,16 +2684,19 @@ function buildTwoLayerCtx(files,index,query,folderFilter){
   const topPaths=new Set(scored.slice(0,6).map(e=>e.path));
   const topFiles=filteredFiles.filter(f=>topPaths.has(f.path));
 
-  const fullContent=topFiles.map(f=>`# ${f.title}\nPath: ${f.path}\n\n${f.content}`).join('\n\n---\n\n');
+  // Cap each file at 2000 words (~2700 tokens) to prevent token explosion
+  const MAX_WORDS=2000;
+  const truncate=(text)=>{const words=text.split(/\s+/);return words.length>MAX_WORDS?words.slice(0,MAX_WORDS).join(' ')+'\n\n[… truncated]':text;};
+  const fullContent=topFiles.map(f=>`# ${f.title}\nPath: ${f.path}\n\n${truncate(f.content)}`).join('\n\n---\n\n');
 
   return{manifest,fullContent,totalFiles:filteredFiles.length};
 }
 
 
 /* ── First-time Setup ── */
-const AXON_VERSION="1.24";
+const AXON_VERSION="1.33";
 
-const AXON_README=`# Axon v1.24
+const AXON_README=`# Axon v1.33
 
 > *Your knowledge, alive.*
 
@@ -2582,6 +2722,20 @@ Axon is built around four ideas:
 
 | Version | Notes |
 |---|---|
+| 1.33 | Stats page redesigned with visual charts: 4-KPI header row, horizontal bar charts for folders and most-referenced notes, SVG donut chart for task breakdown, longest notes list, word count distribution sparkline. |
+| 1.32 | Token efficiency fixes: removed full file path dump from every system prompt, capped full content per file at 2000 words (~2700 tokens), capped fallback context tiers. Folder filter label shown in system prompt when active. |
+| 1.31 | Removed icon column from import rows — was rendering confusing clipboard emoji next to filename. Type badge already identifies file type. |
+| 1.30 | Fixed import checkboxes — FileRow was defined as an unstable component inside ImportView causing React to remount on every render, losing click handlers. Converted to an inline render function. |
+| 1.29 | Connect to Brain auto-detects Axon root structure (Content/, Actions/, Chats/, Imports/, reminders.md). Supports both Axon root and direct vault folder selection. Toast confirms what was detected. |
+| 1.33 | Stats page redesigned with visual charts: 4-KPI header row, horizontal bar charts for folders and most-referenced notes, SVG donut chart for task breakdown, longest notes list, word count distribution sparkline. |
+| 1.32 | Token efficiency fixes: removed full file path dump from every system prompt, capped full content per file at 2000 words (~2700 tokens), capped fallback context tiers. Folder filter label shown in system prompt when active. |
+| 1.31 | Removed icon column from import rows — was rendering confusing clipboard emoji next to filename. Type badge already identifies file type. |
+| 1.30 | Fixed import checkboxes — FileRow was defined as an unstable component inside ImportView causing React to remount on every render, losing click handlers. Converted to an inline render function. |
+| 1.29 | Connect to Brain auto-detects Axon directory structure. Picks Axon root → finds Content/ as vault, Chats/, Imports/, Actions/, reminders.md automatically. Falls back to scanning inside picked folder. Shows detection toast on connect. |
+| 1.28 | Fixed stale closure bug causing rescan and import to not update sidebar or index. Fixed readVaultFiles skipping system folders (index/, chats/). Refresh button replaces icon with text, shows "Refreshing…" while active. |
+| 1.27 | Capture + button moved to right of search bar. Floating action button (FAB) added to bottom-right on all pages except Settings. |
+| 1.26 | Sidebar refresh button (↻) rescans vault and updates index for backdoor-added files. Spinner indicates active refresh. |
+| 1.25 | Browse sidebar defaults to collapsed. Expand all / Collapse all toggle added to sidebar. |
 | 1.24 | LLM provider selector in Settings (Anthropic active, OpenAI and Google Gemini coming soon). API key field renamed to LLM API Key. About section added to Settings showing current version. |
 | 1.23 | Security hardening: DOMPurify for markdown rendering, safeFetch guard, sanitizeName for path traversal prevention, JSON.parse error handling, API key format validation. |
 | 1.22 | README.md auto-generated on first-time setup. README included in Axon root scaffold. |
@@ -2630,8 +2784,9 @@ If you already have a folder of markdown files:
 
 1. Open \`axon.html\` in Chrome
 2. Click **"◈ Connect to Brain"**
-3. Select your markdown folder
-4. Axon scans and indexes your content in the background
+3. Select your **Axon root folder** (the folder containing Content/, Chats/, Imports/) — Axon will auto-detect all subdirectories
+4. Or select any markdown folder directly — Axon will scan inside it for Actions/, Chats/, Imports/, and reminders.md
+5. A confirmation toast shows everything that was auto-detected
 
 ### API key
 
@@ -2745,8 +2900,6 @@ Click **✎ Edit** on any note, or use the \`+\` button on any sidebar folder to
 
 Axon is a personal productivity tool. All content in your vault remains entirely yours.
 `;
-
-
 
 async function scaffoldAxon(onProgress){
   try{
@@ -2952,17 +3105,23 @@ function App(){
   const[vaultHandle,setVaultHandle]=useState(null);const[actionsHandle,setActionsHandle]=useState(null);const[downloadsHandle,setDownloadsHandle]=useState(null);const[chatsHandle,setChatsHandle]=useState(null);
   const[remindersHandle,setRemindersHandle]=useState(null);
   const[remindersToast,setRemindersToast]=useState('');
+  const[connectToast,setConnectToast]=useState('');
   const[actionTodos,setActionTodos]=useState([]);
   const[vaultIndex,setVaultIndex]=useState([]);
   const[indexStatus,setIndexStatus]=useState('');
   const[indexHandle,setIndexHandle]=useState(null);
   const vaultIndexRef=useRef([]);
+  const apiKeyRef=useRef(apiKey);
+  useEffect(()=>{apiKeyRef.current=apiKey;},[apiKey]);
+  const vaultHandleRef=useRef(null);
+  useEffect(()=>{vaultHandleRef.current=vaultHandle;},[vaultHandle]);
   const[eduTopics,setEduTopics]=useState(localStorage.getItem('axon_edu_topics')||`AI first strategies
 Agentic engineering
 Skills best practices`);
   const[pendingChatPrompt,setPendingChatPrompt]=useState(null);
   const[captureOpen,setCaptureOpen]=useState(false);
   const[setupOpen,setSetupOpen]=useState(false);
+  const[sidebarRefreshing,setSidebarRefreshing]=useState(false);
   const[editorMode,setEditorMode]=useState(localStorage.getItem('axon_editor_mode')||'split');
   const[editingFile,setEditingFile]=useState(null);
   const[editingHandle,setEditingHandle]=useState(null);
@@ -2972,25 +3131,24 @@ Skills best practices`);
 
   // Capture modal opened via + button only
 
-  const scanVault=useCallback(async(dir,currentApiKey,triggerIndex=false)=>{
+  const scanVault=useCallback(async(dir,_unusedApiKey,triggerIndex=false)=>{
     if(!dir)return;
     const loaded=await readVaultFiles(dir);
     loaded.sort((a,b)=>a.path.localeCompare(b.path));
     setFiles(loaded);
-    try{const ch=await dir.getDirectoryHandle('chats',{create:false});setChatsHandle(ch);}catch(e){}
+    // chats handle is set by openVault auto-detect; no override here
     // Load existing index
     const idx=await loadIndex(dir);
     vaultIndexRef.current=idx;
     setVaultIndex(idx);
-    // Process reminders on vault connect if handle is set
-    // (handled separately via useEffect watching remindersHandle)
-    if(triggerIndex&&currentApiKey){
-      // Find files missing from index
+    // Always use the ref so we get the latest apiKey value
+    const key=apiKeyRef.current;
+    if(triggerIndex&&key){
       const indexedPaths=new Set(idx.map(e=>e.path));
       const missing=loaded.filter(f=>!indexedPaths.has(f.path)&&!f.path.startsWith('index/')&&!f.path.startsWith('chats/'));
       if(missing.length>0){
         setIndexStatus(`Indexing ${missing.length} note${missing.length!==1?'s':''}…`);
-        const newEntries=await buildIndexEntries(missing,currentApiKey,(done,total)=>{
+        const newEntries=await buildIndexEntries(missing,key,(done,total)=>{
           setIndexStatus(`Indexing ${done}/${total}…`);
         });
         const merged=[...idx,...newEntries];
@@ -3017,7 +3175,70 @@ Skills best practices`);
     });
   },[actionsHandle,remindersHandle]);
 
-  const openVault=async()=>{try{const dir=await window.showDirectoryPicker({mode:'readwrite'});setVaultHandle(dir);await scanVault(dir,apiKey,true);setActiveFile(null);}catch(e){if(e.name!=='AbortError')console.error(e);}};
+  const openVault=async()=>{
+    try{
+      const dir=await window.showDirectoryPicker({mode:'readwrite'});
+
+      // Helpers — silent fail, try multiple name variants
+      const tryDir=async(parent,...names)=>{
+        for(const n of names){try{return await parent.getDirectoryHandle(n,{create:false});}catch(e){}}
+        return null;
+      };
+      const tryFile=async(parent,...names)=>{
+        for(const n of names){try{return await parent.getFileHandle(n,{create:false});}catch(e){}}
+        return null;
+      };
+
+      let vaultDir=dir;
+      let actions=null,chats=null,imports=null,reminders=null;
+      const detected=[];
+
+      // ── Strategy A: user picked Axon root (has Content/ inside) ──
+      const contentDir=await tryDir(dir,'Content','content');
+      if(contentDir){
+        vaultDir=contentDir;
+        detected.push('Content/ → vault');
+        // Actions lives inside Content/Actions/
+        actions=await tryDir(contentDir,'Actions','actions');
+        if(actions)detected.push('Actions');
+        // Chats and Imports are siblings of Content/ under Axon root
+        chats=await tryDir(dir,'Chats','chats');
+        if(chats)detected.push('Chats');
+        imports=await tryDir(dir,'Imports','imports','Downloads','downloads');
+        if(imports)detected.push('Imports');
+        // reminders.md lives inside Content/
+        reminders=await tryFile(contentDir,'reminders.md','Reminders.md');
+        if(reminders)detected.push('reminders.md');
+      } else {
+        // ── Strategy B: user picked vault directly (Content/ or any markdown folder) ──
+        // Look for Axon-style structure inside it
+        actions=await tryDir(dir,'Actions','actions');
+        if(actions)detected.push('Actions');
+        chats=await tryDir(dir,'Chats','chats');
+        if(chats)detected.push('Chats');
+        imports=await tryDir(dir,'Imports','imports','Downloads','downloads');
+        if(imports)detected.push('Imports');
+        reminders=await tryFile(dir,'reminders.md','Reminders.md');
+        if(reminders)detected.push('reminders.md');
+      }
+
+      // Apply all detected handles
+      setVaultHandle(vaultDir);
+      if(actions)setActionsHandle(actions);
+      if(chats)setChatsHandle(chats);
+      if(imports)setDownloadsHandle(imports);
+      if(reminders)setRemindersHandle(reminders);
+
+      // Show connect toast
+      if(detected.length>0){
+        setConnectToast('◈ Connected — auto-detected: '+detected.join(', '));
+        setTimeout(()=>setConnectToast(''),5000);
+      }
+
+      await scanVault(vaultDir,null,true);
+      setActiveFile(null);
+    }catch(e){if(e.name!=='AbortError')console.error(e);}
+  };
   const pickActions=async()=>{try{const dir=await window.showDirectoryPicker({mode:'readwrite'});setActionsHandle(dir);}catch(e){if(e.name!=='AbortError')console.error(e);}};
   const pickDownloads=async()=>{try{const dir=await window.showDirectoryPicker({mode:'readwrite'});setDownloadsHandle(dir);}catch(e){if(e.name!=='AbortError')console.error(e);}};
   const pickChats=async()=>{try{const dir=await window.showDirectoryPicker({mode:'readwrite'});setChatsHandle(dir);}catch(e){if(e.name!=='AbortError')console.error(e);}};
@@ -3086,7 +3307,14 @@ Skills best practices`);
     if(vaultHandle)scanVault(vaultHandle);
   },[vaultHandle,scanVault]);
   const handleSearch=q=>{setSearch(q);if(q&&tab!=='search')setTab('search');if(!q&&tab==='search')setTab('browse');};
-  const rescan=useCallback((triggerIdx=false)=>{if(vaultHandle)scanVault(vaultHandle,apiKey,triggerIdx);},[vaultHandle,apiKey,scanVault]);
+  const rescan=useCallback((triggerIdx=false)=>{const h=vaultHandleRef.current;if(h)scanVault(h,null,triggerIdx);},[scanVault]);
+  const sidebarRescan=useCallback(async()=>{
+    const handle=vaultHandleRef.current;
+    if(!handle||sidebarRefreshing)return;
+    setSidebarRefreshing(true);
+    await scanVault(handle,null,true);
+    setSidebarRefreshing(false);
+  },[sidebarRefreshing,scanVault]);
 
   const showWelcome=files.length===0&&tab!=='settings'&&tab!=='actions'&&tab!=='import';
   const showSidebar=!showWelcome&&(tab==='browse'||tab==='search')&&files.length>0;
@@ -3096,10 +3324,10 @@ Skills best practices`);
     React.createElement('div',{id:'topbar'},
       React.createElement('div',{className:'logo'},'Axon',React.createElement('span',null,' ◈')),
       React.createElement('div',{id:'search-wrap'},React.createElement('span',{className:'si'},'⌕'),React.createElement('input',{type:'text',placeholder:'Search vault…',value:search,onChange:e=>handleSearch(e.target.value),onFocus:()=>files.length>0&&setTab('search')})),
+      files.length>0&&React.createElement('button',{className:'topbar-capture-btn',onClick:()=>setCaptureOpen(true),title:'Capture & Compose'},'+'),
       React.createElement('div',{className:'nav-tabs'},
         TABS.map(t=>React.createElement('button',{key:t.key,className:`nav-tab ${tab===t.key?'active':''}`,onClick:()=>{setTab(t.key);if(t.key==='browse')setActiveFile(null);if(t.key==='chat'&&vaultHandle)scanVault(vaultHandle);}},t.label)),
         React.createElement('button',{className:`nav-tab ${tab==='settings'?'active':''}`,onClick:()=>setTab('settings')},'Settings'),
-        files.length>0&&React.createElement('button',{className:'topbar-capture-btn',onClick:()=>setCaptureOpen(true),title:'Capture & Compose (⌘⇧C)'},'+'),
       )
     ),
     React.createElement('div',{id:'layout'},
@@ -3108,9 +3336,14 @@ Skills best practices`);
         React.createElement('div',{className:'sidebar-header'},
           React.createElement('span',{className:'sidebar-header-label'},vaultHandle?.name||'vault'),
           React.createElement('button',{
+            className:`sidebar-refresh-btn ${sidebarRefreshing?'spinning':''}`,
+            title:'Refresh vault & update index',
+            onClick:sidebarRescan,
+            disabled:sidebarRefreshing
+          },sidebarRefreshing?'Refreshing…':'Refresh'),
+          React.createElement('button',{
             className:'sidebar-add-btn',title:'New folder in vault root',
             onClick:()=>{
-              // Trigger the FolderTree new-folder UI instead of window.prompt
               const evt=new CustomEvent('axon:new-root-folder');
               document.dispatchEvent(evt);
             }
@@ -3175,6 +3408,8 @@ Skills best practices`);
     ),
     setupOpen&&React.createElement(SetupModal,{onClose:()=>setSetupOpen(false),onComplete:(result)=>{handleSetupComplete(result);setSetupOpen(false);}}),
     remindersToast&&React.createElement('div',{className:'reminders-toast'},remindersToast),
+    connectToast&&React.createElement('div',{className:'reminders-toast',style:{bottom:80}},connectToast),
+    files.length>0&&tab!=='settings'&&React.createElement('button',{className:'fab',onClick:()=>setCaptureOpen(true),title:'Capture & Compose'},'+'),
     captureOpen&&files.length>0&&React.createElement(CaptureModal,{
       files,apiKey,
       vaultFolders:[...new Set(files.map(f=>f.folder))].filter(Boolean).sort(),
